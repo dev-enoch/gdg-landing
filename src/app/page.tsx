@@ -14,15 +14,12 @@ import React from "react";
 
 function Page() {
   return (
-    <main className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 pt-10 sm:pt-12 lg:pt-14">
+    <main className="max-w-[1440px] mx-auto flex flex-col pt-16 sm:pt-10 md:pt-12 lg:pt-14">
       <NavBar />
-      <Hero />
-      <Venue />
-      <Expectation />
-
-      <div className="w-full">
+      <div className="flex flex-col">
+        <Hero />
         <Image
-          src="/images/DF25-KeyArt-Horizontal.png"
+          src="/images/gdgbanner.png"
           alt="DevFest Brand banner"
           className="w-full h-auto object-cover"
           height={175}
@@ -31,13 +28,27 @@ function Page() {
         />
       </div>
 
-      <Speakers />
-      <Partners />
-      <AboutDevfest />
-      <Tickets />
-      <DPGenerator />
-      <HowToRegister />
-      <Footer />
+      <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+        <Venue />
+        <Expectation />
+
+        <Image
+          src="/images/DF25-KeyArt-Horizontal.png"
+          alt="DevFest Brand banner"
+          className="w-full h-auto object-cover"
+          height={175}
+          width={1436}
+          loading="lazy"
+        />
+
+        <Speakers />
+        <Partners />
+        <AboutDevfest />
+        <Tickets />
+        <DPGenerator />
+        <HowToRegister />
+        <Footer />
+      </div>
     </main>
   );
 }
