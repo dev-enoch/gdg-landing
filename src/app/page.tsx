@@ -14,7 +14,7 @@ import React from "react";
 
 function Page() {
   return (
-    <main className="max-w-[1440px] mx-auto flex flex-col pt-16 sm:pt-10 md:pt-12 lg:pt-14">
+    <main className="max-w-[1440px] mx-auto flex flex-col pt-10 sm:pt-10 md:pt-12 lg:pt-14">
       <NavBar />
       <div className="flex flex-col">
         <Hero />

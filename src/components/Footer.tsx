@@ -68,7 +68,7 @@ function Footer() {
                 height={24}
                 className="w-4 sm:w-6 md:w-8 h-auto"
                 loading="lazy"
-                priority={false}
+                unoptimized
               />
             </Link>
           ))}
