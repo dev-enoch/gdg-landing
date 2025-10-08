@@ -40,7 +40,7 @@ function Footer() {
           {[
             {
               href: "https://facebook.com/",
-              src: "/images/facebook_icon.png",
+              src: "/images/fb-icon.png",
               alt: "Facebook",
             },
             {
@@ -68,7 +68,7 @@ function Footer() {
                 height={24}
                 className="w-4 sm:w-6 md:w-8 h-auto"
                 loading="lazy"
-                unoptimized
+                priority={false}
               />
             </Link>
           ))}
