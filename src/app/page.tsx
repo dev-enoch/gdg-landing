@@ -19,7 +19,7 @@ function Page() {
       <div className="flex flex-col">
         <Hero />
         <Image
-          src="/images/gdgbanner.png"
+          src="/images/gdg-banner.png"
           alt="DevFest Brand banner"
           className="w-full h-auto object-cover"
           height={175}
