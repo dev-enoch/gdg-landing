@@ -7,7 +7,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement | null>(null); // ✅ typed properly
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const links = [
     { name: "About", href: "#about" },
@@ -58,10 +58,15 @@ function NavBar() {
           ))}
 
           <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px] whitespace-nowrap">
-            <button className="flex items-center gap-2 px-5 py-2 bg-[#F9AB00] text-white rounded-full font-semibold text-sm whitespace-nowrap">
+            <Link
+              href="https://gdg.community.dev/e/mzbnsy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2 bg-[#F9AB00] text-white rounded-full font-semibold text-sm whitespace-nowrap"
+            >
               <Ticket size={16} />
               Get Tickets
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -95,10 +100,15 @@ function NavBar() {
           ))}
 
           <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px] whitespace-nowrap">
-            <button className="flex items-center gap-2 px-6 py-2 bg-[#F9AB00] text-white rounded-full font-semibold text-sm whitespace-nowrap">
+            <Link
+              href="https://gdg.community.dev/e/mzbnsy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2 bg-[#F9AB00] text-white rounded-full font-semibold text-sm whitespace-nowrap"
+            >
               <Ticket size={16} />
               Get Tickets
-            </button>
+            </Link>
           </div>
         </div>
       </div>

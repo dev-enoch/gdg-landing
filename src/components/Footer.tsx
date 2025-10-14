@@ -50,7 +50,7 @@ function Footer() {
             },
             { href: "https://x.com/", src: "/images/x_icon.png", alt: "X" },
             {
-              href: "https://youtube.com/",
+              href: "https://www.youtube.com/@gdgmaiduguri9692",
               src: "/images/youtube_icon.png",
               alt: "YouTube",
             },

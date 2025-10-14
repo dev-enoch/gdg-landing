@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import aboutImg from "../../public/images/about.png";
 
 function AboutDevfest() {
@@ -32,9 +33,14 @@ function AboutDevfest() {
 
         <div className="flex flex-wrap justify-center gap-4 pt-4">
           <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]">
-            <button className="px-6 py-2 bg-[#F9AB00] text-white rounded-full">
+            <Link
+              href="https://gdg.community.dev/e/mzbnsy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-[#F9AB00] text-white rounded-full inline-block"
+            >
               Join the Celebration 🥳
-            </button>
+            </Link>
           </div>
 
           <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]">
