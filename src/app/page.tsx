@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import HowToRegister from "@/components/HowToRegister";
 import NavBar from "@/components/NavBar";
 import Partners from "@/components/Partners";
+import SlidingBanner from "@/components/SlidingBanner";
 import Speakers from "@/components/Speakers";
 import Tickets from "@/components/Tickets";
 import Venue from "@/components/Venue";
@@ -18,15 +19,8 @@ function Page() {
       <NavBar />
       <div className="flex flex-col">
         <Hero />
-        <Image
-          src="/images/gdg-banner.png"
-          alt="DevFest Brand banner"
-          className="w-full h-auto object-cover"
-          height={175}
-          width={1436}
-          loading="lazy"
-        />
       </div>
+      <SlidingBanner />
 
       <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 lg:gap-16">
         <Venue />
