@@ -9,7 +9,7 @@ function Hero() {
       {/* Event Date Button */}
       <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]">
         <button className="px-6 py-2 bg-[#428EFF] text-white rounded-full text-sm sm:text-base">
-          20th Nov, 2025 | 9:00 AM - 2:00 PM
+          22nd Nov, 2025 | 9:00 AM - 2:45 PM
         </button>
       </div>
 

@@ -1,4 +1,5 @@
 import AboutDevfest from "@/components/AboutDevfest";
+import Agendas from "@/components/Agendas";
 import DPGenerator from "@/components/DPGenerator";
 import Expectation from "@/components/Expectation";
 import Footer from "@/components/Footer";
@@ -35,7 +36,7 @@ function Page() {
           loading="lazy"
         />
 
-        <Speakers />
+        <Agendas />
         <Partners />
         <AboutDevfest />
         <Tickets />

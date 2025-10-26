@@ -39,16 +39,20 @@ function Footer() {
         <div className="flex gap-3">
           {[
             {
-              href: "https://facebook.com/",
+              href: "https://facebook.com/GDGmaiduguri/",
               src: "/images/fb-icon.png",
               alt: "Facebook",
             },
             {
-              href: "https://instagram.com/",
+              href: "https://instagram.com/gdgmaiduguri/",
               src: "/images/instagram_icon.png",
               alt: "Instagram",
             },
-            { href: "https://x.com/", src: "/images/x_icon.png", alt: "X" },
+            {
+              href: "https://twitter.com/gdgmaiduguri",
+              src: "/images/x_icon.png",
+              alt: "X",
+            },
             {
               href: "https://www.youtube.com/@gdgmaiduguri9692",
               src: "/images/youtube_icon.png",

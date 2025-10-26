@@ -12,7 +12,11 @@ function NavBar() {
   const links = [
     { name: "About", href: "#about" },
     { name: "Speakers", href: "#speakers" },
-    { name: "Agenda", href: "#agenda" },
+    {
+      name: "Agenda",
+      href: "https://docs.google.com/document/d/1Pfq0dg_9dCGbEivdsckPLZUs96_w649cqBmrNITuLQU/edit?usp=drivesdk",
+      target: "_blank",
+    },
     { name: "Sponsors", href: "#sponsors" },
     { name: "Team", href: "#team" },
     { name: "Venue", href: "#venue" },
@@ -51,6 +55,8 @@ function NavBar() {
             <Link
               key={link.name}
               href={link.href}
+              target={link.target || "_self"}
+              rel={link.target ? "noopener noreferrer" : undefined}
               className="hover:text-[#428EFF] transition-colors"
             >
               {link.name}
@@ -92,6 +98,8 @@ function NavBar() {
             <Link
               key={link.name}
               href={link.href}
+              target={link.target || "_self"}
+              rel={link.target ? "noopener noreferrer" : undefined}
               onClick={() => setMenuOpen(false)}
               className="text-base font-medium hover:text-[#428EFF] transition-colors"
             >
