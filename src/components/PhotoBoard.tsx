@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, forwardRef } from "react";
+import React, { useEffect, forwardRef } from "react";
 import Image from "next/image";
 
 import Logo from "@/assets/group-logo.svg";
@@ -33,13 +33,6 @@ function PhotoBoardInner(
   { tag, name, image }: Props,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const [imageScale, setImageScale] = useState<ImageScale>({
-    width: TARGET_WIDTH,
-    height: TARGET_HEIGHT,
-    x: 0,
-    y: 0,
-  });
-
   useEffect(() => {
     if (!image) return;
 
@@ -70,13 +63,6 @@ function PhotoBoardInner(
 
       const portraitBias = imgAspect < 0.7 ? 0.05 : 0.01;
       offsetY -= (scaledHeight - TARGET_HEIGHT) * portraitBias;
-
-      setImageScale({
-        width: scaledWidth,
-        height: scaledHeight,
-        x: offsetX,
-        y: offsetY,
-      });
     };
   }, [image]);
 

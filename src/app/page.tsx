@@ -8,7 +8,6 @@ import HowToRegister from "@/components/HowToRegister";
 import NavBar from "@/components/NavBar";
 import Partners from "@/components/Partners";
 import SlidingBanner from "@/components/SlidingBanner";
-import Speakers from "@/components/Speakers";
 import Tickets from "@/components/Tickets";
 import Venue from "@/components/Venue";
 import Image from "next/image";
