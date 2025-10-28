@@ -1,8 +1,17 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import dpImage from "../../public/images/dp-generator.png";
 
 function DPGenerator() {
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push("/eventdp");
+  };
+
   return (
     <section className="w-full flex flex-col lg:flex-row items-center justify-between py-12 px-6 lg:px-20 gap-10">
       <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4">
@@ -15,7 +24,10 @@ function DPGenerator() {
 
         <div className="pt-4">
           <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]">
-            <button className="px-6 py-2 bg-[#F9AB00] text-white rounded-full font-semibold">
+            <button
+              onClick={handleNavigate}
+              className="px-6 py-2 bg-[#F9AB00] text-white rounded-full font-semibold"
+            >
               Generate DP Now 🥳
             </button>
           </div>
