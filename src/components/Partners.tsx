@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 import partner1 from "../../public/images/partners/partner1.png";
 import partner2 from "../../public/images/partners/partner2.png";
@@ -23,17 +24,34 @@ const partners = [
 
 function Partners() {
   return (
-    <section
+    <motion.section
       id="sponsors"
       className="w-full text-center space-y-4 overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
     >
-      <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
+      <motion.h2
+        className="text-xl sm:text-2xl md:text-4xl font-bold"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         Partners & Sponsors
-      </h2>
-      <p className="text-sm sm:text-base md:text-lg max-w-[90%] md:max-w-[60%] mx-auto">
+      </motion.h2>
+
+      <motion.p
+        className="text-sm sm:text-base md:text-lg max-w-[90%] md:max-w-[60%] mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         We&apos;re proud to be supported by organizations that make DevFest
         Maiduguri 2025 possible.
-      </p>
+      </motion.p>
 
       <div className="relative w-full pt-2 overflow-hidden">
         <div className="flex animate-slide whitespace-nowrap">
@@ -65,7 +83,7 @@ function Partners() {
           animation: slide 20s linear infinite;
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }
 

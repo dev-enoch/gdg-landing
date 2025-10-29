@@ -4,22 +4,41 @@ import React from "react";
 import { Ticket } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import ticketImg from "../../public/images/devfest-ticket.png";
 
 function Tickets() {
   return (
     <section className="w-full text-center py-8 space-y-4">
-      <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
+      <motion.h2
+        className="text-xl sm:text-2xl md:text-4xl font-bold"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         Get Your Tickets
-      </h2>
+      </motion.h2>
 
-      <p className="text-sm sm:text-base md:text-lg max-w-[80%] md:max-w-[60%] mx-auto">
+      <motion.p
+        className="text-sm sm:text-base md:text-lg max-w-[80%] md:max-w-[60%] mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         Secure your spot at DevFest Maiduguri 2025 and be part of the biggest
         tech celebration in the city. Limited seats available.
-      </p>
+      </motion.p>
 
       {/* Ticket Image with Wiggle Animation */}
-      <div className="flex justify-center pt-4">
+      <motion.div
+        className="flex justify-center pt-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <Image
           src={ticketImg}
           alt="DevFest Ticket"
@@ -28,9 +47,15 @@ function Tickets() {
           className="wiggle w-[80%] sm:w-[60%] md:w-[40%] lg:w-[30%] h-auto"
           priority={false}
         />
-      </div>
+      </motion.div>
 
-      <div className="pt-8 flex justify-center">
+      <motion.div
+        className="pt-8 flex justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]">
           <Link
             href="https://gdg.community.dev/e/mzbnsy/"
@@ -42,7 +67,7 @@ function Tickets() {
             Get your free tickets
           </Link>
         </div>
-      </div>
+      </motion.div>
 
       {/* Wiggle Animation Styles */}
       <style jsx>{`
@@ -74,7 +99,7 @@ function Tickets() {
         .wiggle {
           animation: wiggle 1s ease-in-out infinite;
           animation-delay: 0s;
-          animation-duration: 2s; /* wiggle every 2s */
+          animation-duration: 2s;
         }
       `}</style>
     </section>

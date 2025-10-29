@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import aboutImg from "../../public/images/about.png";
 
 function AboutDevfest() {
@@ -19,19 +22,37 @@ function AboutDevfest() {
       <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="relative z-10 flex flex-col items-center justify-center space-y-4 py-16">
-        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
+        <motion.h2
+          className="text-xl sm:text-2xl md:text-4xl font-bold"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           About DevFest Maiduguri 2025
-        </h2>
+        </motion.h2>
 
-        <p className="text-sm sm:text-base md:text-lg max-w-[80%] md:max-w-[60%] mx-auto">
+        <motion.p
+          className="text-sm sm:text-base md:text-lg max-w-[80%] md:max-w-[60%] mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           DevFest Maiduguri is part of Google Developers Group&apos;s global
           festival of tech, bringing developers, designers, and innovators
           together to learn, build, and celebrate technology. This year marks
           our 5th Anniversary, and we&apos;re making it bigger and better than
           ever.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-wrap justify-center gap-4 pt-4">
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 pt-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]">
             <Link
               href="https://gdg.community.dev/e/mzbnsy/"
@@ -48,7 +69,7 @@ function AboutDevfest() {
               View Throwback Photos
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
