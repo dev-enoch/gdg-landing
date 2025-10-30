@@ -1,60 +1,57 @@
-import Image from "next/image";
+"use client";
+
 import React from "react";
+import Image from "next/image";
 import { Twitter, Linkedin } from "lucide-react";
 import ForiImage from "../../public/images/fori-image.png";
 
-const SpeakerRow = ({
-  name,
-  role,
-  socials,
-  index,
-  total,
-}: {
+type Speaker = {
   name: string;
   role: string;
   socials: string[];
+};
+
+type SpeakerRowProps = Speaker & {
   index: number;
   total: number;
-}) => {
+};
+
+const SpeakerRow = ({ name, role, socials, index, total }: SpeakerRowProps) => {
   const isFirst = index === 0;
   const isLast = index === total - 1;
 
   return (
     <div
       className={`flex items-center justify-between flex-wrap md:flex-nowrap px-4 py-4 ${
-        isFirst ? "bg-[#F6B819] rounded-t-xl" : "bg-white"
+        isFirst ? "bg-[#F6B819] font-bold rounded-t-xl" : "bg-[#FFFAF2]"
       } ${!isLast ? "border-b border-[#F6B819]" : ""}`}
     >
-      {/* Left: Name and Role */}
-      <div className="flex flex-col md:flex-row md:items-center flex-grow md:space-x-8">
-        <div className="md:flex-1">
-          <h3 className="font-bold text-base md:text-lg leading-tight">
-            {name}
-          </h3>
-        </div>
-        <div className="md:flex-[2] mt-1 md:mt-0">
-          <p className="text-sm text-gray-700 leading-tight">{role}</p>
-        </div>
+      <div className="flex flex-col flex-grow">
+        <h3 className="font-bold text-base md:text-lg leading-tight text-gray-900">
+          {name}
+        </h3>
+        <p className="text-sm text-gray-700 mt-1">{role}</p>
       </div>
 
-      {/* Right: Social Icons (aligned with text even on mobile) */}
-      <div className="flex items-center space-x-3 ml-auto mt-3 md:mt-0">
+      <div className="flex items-center space-x-3 mt-3 md:mt-0">
         {socials.map((social) => {
-          const icon = social.includes("twitter") ? (
-            <Twitter size={18} />
-          ) : social.includes("linkedin") ? (
-            <Linkedin size={18} />
-          ) : null;
+          const Icon = social.includes("twitter")
+            ? Twitter
+            : social.includes("linkedin")
+            ? Linkedin
+            : null;
           return (
-            <a
-              key={social}
-              href={social}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-[#428EFF] transition-colors"
-            >
-              {icon}
-            </a>
+            Icon && (
+              <a
+                key={social}
+                href={social}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-[#428EFF] transition-colors"
+              >
+                <Icon size={18} />
+              </a>
+            )
           );
         })}
       </div>
@@ -63,70 +60,51 @@ const SpeakerRow = ({
 };
 
 function Speakers() {
-  const speakers = [
+  const speakers: Speaker[] = [
     {
       name: "Usman Fori",
-      role: "Product Manager at GDG Maiduguri",
+      role: "GDG Organizer | Product Manager",
       socials: [
         "https://twitter.com/usmanfori",
         "https://linkedin.com/in/usmanfori",
       ],
     },
     {
-      name: "Yusuf Adam",
-      role: "Product Manager at DevConnect",
+      name: "S. A. Yusuf",
+      role: "Founder, DevConnect | Speaker on Human Sustainability in Tech",
       socials: [
         "https://twitter.com/yusufadam",
         "https://linkedin.com/in/yusufadam",
       ],
     },
     {
-      name: "Queenex Phil",
-      role: "Developer Relations Specialist at GDG Maiduguri",
+      name: "Fauziya Mohammed",
+      role: "Product Designer | Inclusive Design Advocate",
       socials: [
-        "https://twitter.com/queenexphil",
-        "https://linkedin.com/in/queenexphil",
+        "https://twitter.com/fauziya",
+        "https://linkedin.com/in/fauziyamohammed",
       ],
     },
     {
-      name: "Maryam Bukar",
-      role: "Software Engineer at NorthTech Hub",
+      name: "Rashid Mudasiru",
+      role: "Software Engineer | Gemma & MaaS Expert",
       socials: [
-        "https://twitter.com/maryambukar",
-        "https://linkedin.com/in/maryambukar",
+        "https://twitter.com/rashidmudasiru",
+        "https://linkedin.com/in/rashidmudasiru",
       ],
     },
     {
-      name: "Ali Goni",
-      role: "UI/UX Designer at Crevix Technologies",
+      name: "Saheed Adewumi",
+      role: "Google Developer Expert | GenAI Specialist",
       socials: [
-        "https://twitter.com/aligoni",
-        "https://linkedin.com/in/aligoni",
+        "https://twitter.com/saheed",
+        "https://linkedin.com/in/saheedadewumi",
       ],
     },
     {
-      name: "Abdullahi Modu",
-      role: "Backend Developer at Cloud360",
-      socials: [
-        "https://twitter.com/abdullahimodu",
-        "https://linkedin.com/in/abdullahimodu",
-      ],
-    },
-    {
-      name: "Zainab Kyari",
-      role: "Data Analyst at TechAid Africa",
-      socials: [
-        "https://twitter.com/zainabkyari",
-        "https://linkedin.com/in/zainabkyari",
-      ],
-    },
-    {
-      name: "Mohammed Umar",
-      role: "AI Engineer at Bornu Innovation Lab",
-      socials: [
-        "https://twitter.com/mohammedumar",
-        "https://linkedin.com/in/mohammedumar",
-      ],
+      name: "Alheri",
+      role: "WTM Ambassador | Women in Tech Leader",
+      socials: ["https://twitter.com/alheri", "https://linkedin.com/in/alheri"],
     },
   ];
 
@@ -135,32 +113,27 @@ function Speakers() {
       id="speakers"
       className="w-full py-12 px-6 md:px-12 lg:px-20 space-y-6 text-center"
     >
-      <h2 className="text-2xl md:text-4xl font-bold">Featured Speakers</h2>
+      <h2 className="text-2xl md:text-4xl font-bold">Speakers</h2>
       <p className="text-base md:text-lg md:max-w-[60%] mx-auto">
-        We&apos;ve raised the bar this year with our impressive lineup of
-        speakers, each prepared to share valuable insights on different aspects
-        of the tech community.
+        Meet the voices shaping DevFest Maiduguri 2025. Each speaker brings
+        unique expertise and insight to the stage.
       </p>
 
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-10">
-        {/* Left Image */}
         <div className="w-full md:w-[40%] flex justify-center">
           <Image
             src={ForiImage}
             alt="Fori Image"
-            className="w-full h-auto object-contain"
+            className="w-full max-w-[400px] h-auto object-contain"
             loading="lazy"
           />
         </div>
 
-        {/* Right Speaker List */}
-        <div className="w-full md:w-[60%] text-left rounded-xl overflow-hidden">
+        <div className="w-full md:w-[60%] text-left rounded-xl overflow-hidden shadow-md">
           {speakers.map((speaker, index) => (
             <SpeakerRow
               key={speaker.name}
-              name={speaker.name}
-              role={speaker.role}
-              socials={speaker.socials}
+              {...speaker}
               index={index}
               total={speakers.length}
             />

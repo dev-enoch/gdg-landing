@@ -3,10 +3,42 @@
 import { Ticket } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function Hero() {
+  const targetDate = new Date("2025-11-22T09:00:00").getTime();
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        clearInterval(interval);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
   return (
     <motion.section
       className="flex flex-col items-center justify-center space-y-5 px-4 pt-16 bg-[#428EFF] text-white text-center overflow-hidden"
@@ -48,6 +80,29 @@ function Hero() {
         <span className="text-xl leading-none">·</span>
         <span>Innovate</span>
       </motion.p>
+
+      {/* Countdown Timer */}
+      <motion.div
+        className="flex gap-4 sm:gap-6 mt-2 sm:mt-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.7, duration: 0.6 }}
+      >
+        {[
+          { label: "Days", value: timeLeft.days },
+          { label: "Hours", value: timeLeft.hours },
+          { label: "Minutes", value: timeLeft.minutes },
+          { label: "Seconds", value: timeLeft.seconds },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center bg-white/10 rounded-lg px-3 sm:px-4 py-2 sm:py-3 min-w-[60px] sm:min-w-[70px]"
+          >
+            <span className="text-2xl sm:text-3xl font-bold">{item.value}</span>
+            <span className="text-xs sm:text-sm opacity-80">{item.label}</span>
+          </div>
+        ))}
+      </motion.div>
 
       <motion.div
         className="relative inline-block rounded-full bg-gradient-to-r from-[#428EFF] to-[#E74436] p-[2px]"

@@ -15,7 +15,6 @@ function Expectation() {
 
   return (
     <motion.section
-      id="agenda"
       className="w-full text-center space-y-6"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}

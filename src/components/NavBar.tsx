@@ -14,8 +14,7 @@ function NavBar() {
     { name: "Speakers", href: "#speakers" },
     {
       name: "Agenda",
-      href: "https://docs.google.com/document/d/1Pfq0dg_9dCGbEivdsckPLZUs96_w649cqBmrNITuLQU/edit?usp=drivesdk",
-      target: "_blank",
+      href: "#agenda",
     },
     { name: "Sponsors", href: "#sponsors" },
     { name: "Team", href: "#team" },
@@ -55,8 +54,8 @@ function NavBar() {
             <Link
               key={link.name}
               href={link.href}
-              target={link.target || "_self"}
-              rel={link.target ? "noopener noreferrer" : undefined}
+              target={"_self"}
+              rel={undefined}
               className="hover:text-[#428EFF] transition-colors"
             >
               {link.name}
@@ -98,8 +97,8 @@ function NavBar() {
             <Link
               key={link.name}
               href={link.href}
-              target={link.target || "_self"}
-              rel={link.target ? "noopener noreferrer" : undefined}
+              target={"_self"}
+              rel={undefined}
               onClick={() => setMenuOpen(false)}
               className="text-base font-medium hover:text-[#428EFF] transition-colors"
             >
