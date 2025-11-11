@@ -1,5 +1,6 @@
 import AboutDevfest from "@/components/AboutDevfest";
 import Agendas from "@/components/Agendas";
+import Donation from "@/components/Donation";
 import DPGenerator from "@/components/DPGenerator";
 import Expectation from "@/components/Expectation";
 import Footer from "@/components/Footer";
@@ -43,6 +44,7 @@ function Page() {
         <Tickets />
         <DPGenerator />
         <HowToRegister />
+        <Donation />
         <Footer />
       </div>
     </main>
